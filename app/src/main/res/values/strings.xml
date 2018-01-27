@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Let\'s do it</string>
+    <string name="Image">TODO</string>
+    <string-array name="MyMenu">
+        <item>Мои задачи</item>
+        <item>Календарь</item>
+        <item>Мои цели</item>
+        <item>Достижения</item>
+        <item>Заметки</item>
+        <item>События дня</item>
+        <item>Справка</item>
+        <item>Настройки</item>
+    </string-array>
+</resources>
