@@ -5,20 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.company.afinievskym.letsdoit.MainActivity">
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatingActionButton16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_note_add_black_24dp" />
-    </GridLayout>
+    tools:context="com.company.afinievskym.letsdoit.MainActivity"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -63,6 +51,25 @@
             android:layout_marginEnd="36dp"
             android:clickable="true"
             app:srcCompat="@drawable/lamp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/AddTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="29dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_note_add_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+
     </RelativeLayout>
 
     <android.support.v4.widget.DrawerLayout
@@ -88,7 +95,9 @@
             android:background="#111"
             android:choiceMode="singleChoice"
             android:divider="@android:color/transparent"
-            android:dividerHeight="0dp"/>
+            android:dividerHeight="0dp">
+
+        </ListView>
 
     </android.support.v4.widget.DrawerLayout>
 
