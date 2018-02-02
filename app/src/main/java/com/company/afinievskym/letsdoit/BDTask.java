@@ -14,7 +14,7 @@ public class BDTask extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String INEED = "my_task_in_edit";
     //*Обнуляю курсор
-    public BDTask(Context context, String name, int version) {
+    public BDTask(Context context) {
         super(context, TASKDATABASE, null, DATABASE_VERSION);
     }
 
