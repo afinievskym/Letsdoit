@@ -1,19 +1,23 @@
 package com.company.afinievskym.letsdoit;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddNewTaskActivity extends AppCompatActivity {
+/**
+ * Created by afini on 02.02.2018.
+ */
+
+public class AddNewTaskActivity extends Activity {
     EditText newTask;
     Button addMyTask;
-    BDTask bdTask;
+    DBHelper bdTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +26,7 @@ public class AddNewTaskActivity extends AppCompatActivity {
         newTask = findViewById(R.id.newTask);
         addMyTask = findViewById(R.id.AddMyTask);
         final String task = newTask.getText().toString();
-        bdTask = new BDTask(this);
+        bdTask = new DBHelper(this);
         final SQLiteDatabase database = bdTask.getWritableDatabase();
         final ContentValues contentValues = new ContentValues();
         addMyTask.setOnClickListener(new View.OnClickListener() {
@@ -46,8 +50,5 @@ public class AddNewTaskActivity extends AppCompatActivity {
             Log.d(TAG, "0 rows");
         cursor.close();
 
-        }
     }
-
-
-
+}
