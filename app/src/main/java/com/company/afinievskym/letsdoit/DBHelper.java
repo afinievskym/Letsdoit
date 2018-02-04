@@ -16,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //Столбцы
     public static final String TASKS = "MyAddedTasks";
     public static final String ID = "_id";
-    public static final String TITLE = "Title";
+    //public static final String TITLE = "Title";
     //Номера столбцов
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table " + TABLE_NAME + "(" + ID + " integer primary key," + TITLE + " text," + TASKS + " text" + ")");
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME + "(" + ID + " integer primary key," /*+ TITLE*/ + " text," + TASKS + " text" + ")");
     }
 
     @Override
