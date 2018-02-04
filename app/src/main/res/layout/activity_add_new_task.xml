@@ -3,21 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="com.company.afinievskym.letsdoit.AddNewTaskActivity">
 
     <EditText
+        android:id="@+id/newTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Мне нужно..."
-        android:id="@+id/newTask"/>
+        android:hint="Мне нужно..." />
 
-    <Button
-        android:id="@+id/AddMyTask"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Добавить задачу" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnRead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Список" />
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="btnClear" />
+
+        <Button
+            android:id="@+id/AddMyTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Добавить задачу" />
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -16,39 +16,63 @@ import android.widget.EditText;
 
 public class AddNewTaskActivity extends Activity {
     EditText newTask;
-    Button addMyTask;
+    Button addMyTask,btnRead,btnClear;
     DBHelper bdTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_task);
+        //Поля
         final String TAG = "myLogs";
+        //Находим элементы
         newTask = findViewById(R.id.newTask);
         addMyTask = findViewById(R.id.AddMyTask);
-        final String task = newTask.getText().toString();
+        btnRead = findViewById(R.id.btnRead);
+        btnClear = findViewById(R.id.btnClear);
         bdTask = new DBHelper(this);
+        //Поля базы данных
         final SQLiteDatabase database = bdTask.getWritableDatabase();
         final ContentValues contentValues = new ContentValues();
-        addMyTask.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                contentValues.put(BDTask.INEED,task);
-                database.insert(BDTask.ADDEDTASKS, null, contentValues);
+                switch (view.getId()){
+                    case R.id.AddMyTask :
+                        final String task = newTask.getText().toString();
+                        contentValues.put(DBHelper.TASKS,task);
+                        database.insert(DBHelper.TABLE_NAME, null, contentValues);
+                        break;
+                    case R.id.btnRead:
+                        Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
+
+                        if (cursor.moveToFirst()) {
+                            int idIndex = cursor.getColumnIndex(DBHelper.ID);
+                            int TasksIndex = cursor.getColumnIndex(DBHelper.TASKS);
+                            int TitleIndex = cursor.getColumnIndex(DBHelper.TITLE);
+                            do {
+                                Log.d(TAG, "ID = " + cursor.getInt(idIndex) +
+                                        ", name = " + cursor.getString(TasksIndex) +
+                                        ", email = " + cursor.getString(TitleIndex));
+                            } while (cursor.moveToNext());
+                        } else
+                            Log.d(TAG,"0 rows");
+
+                        cursor.close();
+                        break;
+
+                    case R.id.btnClear:
+                        database.delete(DBHelper.TABLE_NAME, null, null);
+                        break;
+                }
+                bdTask.close();
 
             }
-        });
-        Cursor cursor = database.query(BDTask.ADDEDTASKS, null, null, null, null, null, null);
-        if (cursor.moveToFirst()){
-            int taskIndex = cursor.getColumnIndex(BDTask.INEED);
-            do {
-                // получаем значения по номерам столбцов и пишем все в лог
-                Log.d(TAG, ", Tasks = " + cursor.getString(taskIndex));
-                // переход на следующую строку
-                // а если следующей нет (текущая - последняя), то false - выходим из цикла
-            } while (cursor.moveToNext());
-        } else
-            Log.d(TAG, "0 rows");
-        cursor.close();
+        };
+        //Присваиваю обработчик кнопкам
+        addMyTask.setOnClickListener(onClickListener);
+        btnClear.setOnClickListener(onClickListener);
+        btnRead.setOnClickListener(onClickListener);
+        //
 
     }
 }
