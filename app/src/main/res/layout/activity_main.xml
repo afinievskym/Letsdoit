@@ -14,53 +14,9 @@
         android:layout_height="match_parent">
 
         <!-- The main content view -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="41dp"
-                android:clickable="true"
-                app:srcCompat="@drawable/rupor" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="47dp"
-                android:layout_toEndOf="@+id/floatingActionButton9"
-                android:clickable="true"
-                app:srcCompat="@drawable/calendar" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="50dp"
-                android:layout_toEndOf="@+id/floatingActionButton7"
-                android:clickable="true"
-                app:srcCompat="@drawable/w512h5121390849392combo512" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="47dp"
-                android:layout_toEndOf="@+id/floatingActionButton10"
-                android:clickable="true"
-                app:srcCompat="@drawable/lamp" />
-        </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
             <android.support.design.widget.FloatingActionButton
@@ -98,5 +54,10 @@
         </ListView>
 
     </android.support.v4.widget.DrawerLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv"
+        />
 
 </LinearLayout>
