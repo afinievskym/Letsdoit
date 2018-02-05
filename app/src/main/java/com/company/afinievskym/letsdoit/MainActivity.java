@@ -13,9 +13,13 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity {
     //Поля главного экрана
     FloatingActionButton AddTask;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     //Поля выдвижного экрана
     private String[] MyMenu;
     private ListView DrawerLayout;
+    //https://developer.android.com/training/material/lists-cards.html
 
 
     @Override
@@ -36,9 +40,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //Создание RecyclerView
-        RecyclerView rv = findViewById(R.id.rv);
-        LinearLayoutManager llm = new LinearLayoutManager(MainActivity.this);
-        rv.setLayoutManager(llm);
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        //Ошибка - на сайте дополнительный код для исправления
+        mAdapter = new MyAdapter(myDataset);
+        mRecyclerView.setAdapter(mAdapter);
+
 
 
     }
