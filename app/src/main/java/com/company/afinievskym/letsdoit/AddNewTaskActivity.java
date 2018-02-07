@@ -31,12 +31,13 @@ public class AddNewTaskActivity extends Activity {
         btnRead = findViewById(R.id.btnRead);
         btnClear = findViewById(R.id.btnClear);
         dbHelper = new DBHelper(this);
+
         //Поля базы данных
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Запись в БД
                 String task = newTask.getText().toString();
-
                 SQLiteDatabase database = dbHelper.getWritableDatabase();
 
                 ContentValues contentValues = new ContentValues();
@@ -76,4 +77,5 @@ public class AddNewTaskActivity extends Activity {
        btnRead.setOnClickListener(onClickListener);
        btnClear.setOnClickListener(onClickListener);
     }
+
 }
