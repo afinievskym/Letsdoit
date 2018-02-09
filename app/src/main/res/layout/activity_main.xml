@@ -8,56 +8,27 @@
     tools:context="com.company.afinievskym.letsdoit.MainActivity"
     android:orientation="vertical">
 
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- The main content view -->
-
-        <RelativeLayout
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/AddTask"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="29dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_note_add_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/AddTask"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="29dp"
-                android:layout_marginEnd="32dp"
-                android:clickable="true"
-                app:srcCompat="@drawable/ic_note_add_black_24dp"
-                tools:ignore="VectorDrawableCompat" />
-
-        </RelativeLayout>
-
-        <FrameLayout
-            android:id="@+id/content_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </FrameLayout>
-
-        <!-- The navigation drawer -->
-        <ListView
-            android:id="@+id/left_drawer"
-            android:layout_width="240dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="#111"
-            android:choiceMode="singleChoice"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0dp">
-
-        </ListView>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recyclerView"/>
-
-    </android.support.v4.widget.DrawerLayout>
+    </RelativeLayout>
 
 </LinearLayout>

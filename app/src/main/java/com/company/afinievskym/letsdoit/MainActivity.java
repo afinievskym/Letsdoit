@@ -15,12 +15,14 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
     //Подключаю классы
-    DrawerItemClickListener drawerItemClickListener;
+
     //Поля главного экрана
     FloatingActionButton AddTask;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     //Поля выдвижного экрана
-    public String[] MyMenu;
-    public ListView DrawerLayout;
+
     //https://developer.android.com/training/material/lists-cards.html
 
 
@@ -29,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Создание выдвижного меню
-        MyMenu = getResources().getStringArray(R.array.MyMenu);
-        DrawerLayout = findViewById(R.id.left_drawer);
-        DrawerLayout.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, MyMenu));
         //Кнопка Добавить задачу
         AddTask = findViewById(R.id.AddTask);
         AddTask.setOnClickListener(new View.OnClickListener() {
@@ -42,9 +41,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //Создание RecyclerView
+        mRecyclerView =findViewById(R.id.my_recycler_view);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        String[] array = {"Cat", "Dog", "Cow"};
+        mAdapter = new MyAdapter(array);
+        mRecyclerView.setAdapter(mAdapter);
         //Работа с элементами выдвижного экрана
-        DrawerLayout.setOnItemClickListener(new DrawerItemClickListener());
-        //drawerItemClickListener.onItemClick(); Вызов метода из другого класса
+
 
 
 
