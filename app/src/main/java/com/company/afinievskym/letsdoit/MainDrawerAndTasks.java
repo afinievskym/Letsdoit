@@ -19,12 +19,11 @@ import android.view.MenuItem;
 public class MainDrawerAndTasks extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //Подключаю классы
     AddNewTaskActivity addNewTaskActivity;
-    MyAdapter myAdapter;
+    RVAdapter rvAdapter;
+
     //Поля главного экрана
     FloatingActionButton AddTask;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +53,11 @@ public class MainDrawerAndTasks extends AppCompatActivity implements NavigationV
         });
 
         //Добавление RecyclerView
-        mRecyclerView =findViewById(R.id.my_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        mAdapter = new MyAdapter(addNewTaskActivity.myAddedTasks);
-        mRecyclerView.setAdapter(mAdapter);
+        RecyclerView rv = (RecyclerView)findViewById(R.id.my_recycler_view);
+        LinearLayoutManager llm = new LinearLayoutManager(MainDrawerAndTasks.this);
+        rv.setLayoutManager(llm);
+        RVAdapter adapter = new RVAdapter(rvAdapter.alltasks);
+        rv.setAdapter(adapter);
 
 
     }
