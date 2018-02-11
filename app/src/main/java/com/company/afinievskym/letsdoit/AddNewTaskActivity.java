@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
 
 /**
  * Created by afini on 02.02.2018.
@@ -19,11 +22,13 @@ public class AddNewTaskActivity extends Activity {
     EditText newTask;
     Button addMyTask, btnRead, btnClear;
     DBHelper dbHelper;
+    ArrayList<String> myAddedTasks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_task);
+
         //Поля
 
         //Находим элементы
@@ -39,9 +44,16 @@ public class AddNewTaskActivity extends Activity {
             public void onClick(View view) {
                 //Запись в БД
                 String task = newTask.getText().toString();
-                SQLiteDatabase database = dbHelper.getWritableDatabase();
+
+                SQLiteDatabase database;
 
                 ContentValues contentValues = new ContentValues();
+                try {
+                    database = dbHelper.getWritableDatabase();
+                }
+                catch (SQLiteException ex){
+                    database = dbHelper.getReadableDatabase();
+                }
                 switch (view.getId()) {
                     case R.id.AddMyTask:
                         contentValues.put(DBHelper.TASKS, task);
@@ -49,7 +61,8 @@ public class AddNewTaskActivity extends Activity {
                         database.insert(DBHelper.TABLE_NAME, null, contentValues);
                         break;
 
-                    case R.id.btnRead:
+                    //Комментирую ненужные кнопки
+                    /*case R.id.btnRead:
                         Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
 
                         if (cursor.moveToFirst()) {
@@ -67,16 +80,32 @@ public class AddNewTaskActivity extends Activity {
 
                     case R.id.btnClear:
                         database.delete(DBHelper.TABLE_NAME, null, null);
-                        break;
+                        break;*/
                 }
+                myAddedTasks = new ArrayList<>();
+                Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
+
+                if (cursor.moveToFirst()) {
+                    int idIndex = cursor.getColumnIndex(DBHelper.ID);
+                    int taskIndex = cursor.getColumnIndex(DBHelper.TASKS);
+                    do {
+                        /*Log.d("myLog", "ID = " + cursor.getInt(idIndex) +
+                                ", task = " + cursor.getString(taskIndex));*/
+                        myAddedTasks.add(cursor.getInt(idIndex),cursor.getString(taskIndex));
+                    } while (cursor.moveToNext());
+                } else
+                    //Log.d("myLog", "0 task");
+
+                cursor.close();
                 dbHelper.close();
 
 
             }
         };
+
        addMyTask.setOnClickListener(onClickListener);
-       btnRead.setOnClickListener(onClickListener);
-       btnClear.setOnClickListener(onClickListener);
+       /*btnRead.setOnClickListener(onClickListener);
+       btnClear.setOnClickListener(onClickListener);*/
     }
 
 }

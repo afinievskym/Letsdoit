@@ -18,7 +18,7 @@ import android.view.MenuItem;
 
 public class MainDrawerAndTasks extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //Подключаю классы
-
+    AddNewTaskActivity addNewTaskActivity;
     //Поля главного экрана
     FloatingActionButton AddTask;
     private RecyclerView mRecyclerView;
@@ -57,8 +57,8 @@ public class MainDrawerAndTasks extends AppCompatActivity implements NavigationV
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        String[] array = {"Cat", "Dog", "Cow"};
-        mAdapter = new MyAdapter(array);
+
+        mAdapter = new MyAdapter(addNewTaskActivity.myAddedTasks);
         mRecyclerView.setAdapter(mAdapter);
 
 
