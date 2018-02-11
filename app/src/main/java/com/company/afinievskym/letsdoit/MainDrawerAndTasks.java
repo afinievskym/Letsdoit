@@ -19,6 +19,7 @@ import android.view.MenuItem;
 public class MainDrawerAndTasks extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //Подключаю классы
     AddNewTaskActivity addNewTaskActivity;
+    MyAdapter myAdapter;
     //Поля главного экрана
     FloatingActionButton AddTask;
     private RecyclerView mRecyclerView;

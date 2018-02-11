@@ -2,6 +2,7 @@ package com.company.afinievskym.letsdoit;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -59,9 +60,9 @@ public class AddNewTaskActivity extends Activity {
                         contentValues.put(DBHelper.TASKS, task);
 
                         database.insert(DBHelper.TABLE_NAME, null, contentValues);
-                        break;
 
-                    //Комментирую ненужные кнопки
+
+                        //Комментирую ненужные кнопки
                     /*case R.id.btnRead:
                         Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
 
@@ -81,25 +82,29 @@ public class AddNewTaskActivity extends Activity {
                     case R.id.btnClear:
                         database.delete(DBHelper.TABLE_NAME, null, null);
                         break;*/
-                }
-                myAddedTasks = new ArrayList<>();
-                Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
 
-                if (cursor.moveToFirst()) {
-                    int idIndex = cursor.getColumnIndex(DBHelper.ID);
-                    int taskIndex = cursor.getColumnIndex(DBHelper.TASKS);
-                    do {
+                        myAddedTasks = new ArrayList<>();
+                        Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
+
+                        if (cursor.moveToFirst()) {
+                            int idIndex = cursor.getColumnIndex(DBHelper.ID);
+                            int taskIndex = cursor.getColumnIndex(DBHelper.TASKS);
+                            do {
                         /*Log.d("myLog", "ID = " + cursor.getInt(idIndex) +
                                 ", task = " + cursor.getString(taskIndex));*/
-                        myAddedTasks.add(cursor.getInt(idIndex),cursor.getString(taskIndex));
-                    } while (cursor.moveToNext());
-                } else
-                    //Log.d("myLog", "0 task");
+                                myAddedTasks.add(cursor.getString(taskIndex));
+                                Log.d("myLog", "Size =" + myAddedTasks.size());
+                            } while (cursor.moveToNext());
+                        } else
+                            //Log.d("myLog", "0 task");
 
-                cursor.close();
-                dbHelper.close();
+                            cursor.close();
+                        dbHelper.close();
+                        Intent intentMain = new Intent(AddNewTaskActivity.this, MainDrawerAndTasks.class);
+                        startActivity(intentMain);
 
 
+                }
             }
         };
 
