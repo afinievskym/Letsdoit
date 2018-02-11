@@ -52,12 +52,14 @@ public class MainDrawerAndTasks extends AppCompatActivity implements NavigationV
             }
         });
 
-        //Добавление RecyclerView
+        /*Добавление RecyclerView
         RecyclerView rv = (RecyclerView)findViewById(R.id.my_recycler_view);
         LinearLayoutManager llm = new LinearLayoutManager(MainDrawerAndTasks.this);
         rv.setLayoutManager(llm);
-        RVAdapter adapter = new RVAdapter(rvAdapter.alltasks);
-        rv.setAdapter(adapter);
+        //Error NullPointer execption
+        RVAdapter adapter = new RVAdapter(addNewTaskActivity.myAddedTasks);
+        //end error
+        rv.setAdapter(adapter);*/
 
 
     }
@@ -100,17 +102,26 @@ public class MainDrawerAndTasks extends AppCompatActivity implements NavigationV
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.myListTaskMenuItem) {
+            Intent mytasksIntent = new Intent();
+        } else if (id == R.id.calendarMenuItem) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.myTargetsMenuItem) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.achivmentsMenuItem) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.notesMenuItem) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.dailyIventsMenuItem) {
+
+        }
+        else if (id == R.id.settingsMenuItem) {
+
+        }
+        else if (id == R.id.manualMenuItem) {
+
+        }
+        else if (id == R.id.aboutDeveloperMenuItem) {
 
         }
 

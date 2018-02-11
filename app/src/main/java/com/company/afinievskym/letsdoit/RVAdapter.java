@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
     AddNewTaskActivity addNewTaskActivity;
-    public ArrayList<AddNewTaskActivity> alltasks;
+    public ArrayList<String> alltasks;
     public class TaskViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
         TextView task;
@@ -27,7 +27,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
             task = itemView.findViewById(R.id.tasktitle);
         }
     }
-    RVAdapter(ArrayList<AddNewTaskActivity> allofmytasks){
+    RVAdapter(ArrayList<String> allofmytasks){
         this.alltasks = allofmytasks;
     }
 

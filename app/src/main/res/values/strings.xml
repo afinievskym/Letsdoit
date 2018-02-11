@@ -1,16 +1,7 @@
 <resources>
     <string name="app_name">Let\'s do it</string>
     <string name="Image">TODO</string>
-    <string-array name="MyMenu">
-        <item>Мои задачи</item>
-        <item>Календарь</item>
-        <item>Мои цели</item>
-        <item>Достижения</item>
-        <item>Заметки</item>
-        <item>События дня</item>
-        <item>Справка</item>
-        <item>Настройки</item>
-    </string-array>
+
     <string name="title_activity_main_task">MainTaskActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -18,4 +9,5 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_drawer_and_tasks">MainDrawerAndTasks</string>
+    <string name="title_activity_task_lists">TaskLists</string>
 </resources>

@@ -87,7 +87,7 @@ public class AddNewTaskActivity extends Activity {
                         Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
 
                         if (cursor.moveToFirst()) {
-                            int idIndex = cursor.getColumnIndex(DBHelper.ID);
+                            //int idIndex = cursor.getColumnIndex(DBHelper.ID);
                             int taskIndex = cursor.getColumnIndex(DBHelper.TASKS);
                             do {
                         /*Log.d("myLog", "ID = " + cursor.getInt(idIndex) +

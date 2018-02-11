@@ -5,34 +5,41 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/myListTaskMenuItem"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="Списки задач" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/calendarMenuItem"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="Календарь" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/myTargetsMenuItem"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Мои цели" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/achivmentsMenuItem"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Достижения" />
+        <item
+            android:id="@+id/notesMenuItem"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Заметки" />
+        <item
+            android:id="@+id/dailyIventsMenuItem"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="События дня" />
+            <item
+                android:id="@+id/settingsMenuItem"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Настройки" />
+            <item
+                android:id="@+id/manualMenuItem"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Справка" />
+            <item
+                android:id="@+id/aboutDeveloperMenuItem"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="О разработчике" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>
