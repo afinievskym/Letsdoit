@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".AddNewTaskActivity" />
+        <activity
+            android:name=".MainDrawerAndTasks"
+            android:label="@string/title_activity_main_drawer_and_tasks"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddNewTaskActivity" />
-        <activity
-            android:name=".MainTaskActivity"
-            android:label="@string/title_activity_main_task"
-            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

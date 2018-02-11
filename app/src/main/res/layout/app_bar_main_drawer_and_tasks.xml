@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.company.afinievskym.letsdoit.MainTaskActivity">
+    tools:context="com.company.afinievskym.letsdoit.MainDrawerAndTasks">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main_task" />
+    <include layout="@layout/content_main_drawer_and_tasks"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/ic_note_add_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
 
 </android.support.design.widget.CoordinatorLayout>
