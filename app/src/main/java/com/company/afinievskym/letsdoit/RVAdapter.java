@@ -28,8 +28,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
     Context context;
 
     RVAdapter(Context context){
-        this.AddedTasks = db();
         this.context = context;
+        this.AddedTasks = db();
     }
     public ArrayList<String> db(){
         //Всегда getApplicationcontext() для баз данных!
