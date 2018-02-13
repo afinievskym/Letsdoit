@@ -52,14 +52,14 @@ public class MainDrawerAndTasks extends AppCompatActivity implements NavigationV
             }
         });
 
-        /*Добавление RecyclerView
+
         RecyclerView rv = (RecyclerView)findViewById(R.id.my_recycler_view);
-        LinearLayoutManager llm = new LinearLayoutManager(MainDrawerAndTasks.this);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         //Error NullPointer execption
-        RVAdapter adapter = new RVAdapter(addNewTaskActivity.myAddedTasks);
+        RVAdapter adapter = new RVAdapter();
         //end error
-        rv.setAdapter(adapter);*/
+        rv.setAdapter(adapter);
 
 
     }

@@ -1,7 +1,13 @@
 package com.company.afinievskym.letsdoit;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +21,29 @@ import java.util.ArrayList;
  */
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
-    AddNewTaskActivity addNewTaskActivity;
-    public ArrayList<String> alltasks;
+    ArrayList<String> AddedTasks;
+    DBHelper dbHelper;
+    SQLiteDatabase database;
+    RVAdapter(){
+        this.AddedTasks = db();
+    }
+    public ArrayList<String> db(){
+        ArrayList<String> dbHelpert = new ArrayList<String>();
+        database = dbHelper.getReadableDatabase();
+        Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            //int idIndex = cursor.getColumnIndex(DBHelper.ID);
+            int taskIndex = cursor.getColumnIndex(DBHelper.TASKS);
+            do {
+                        /*Log.d("myLog", "ID = " + cursor.getInt(idIndex) +
+                                ", task = " + cursor.getString(taskIndex));*/
+                dbHelpert.add(cursor.getString(taskIndex));
+                Log.d("myLog", "Size =" + dbHelpert.size());
+            } while (cursor.moveToNext());
+        }
+        return dbHelpert;
+    }
     public class TaskViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
         TextView task;
@@ -27,10 +54,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
             task = itemView.findViewById(R.id.tasktitle);
         }
     }
-    RVAdapter(ArrayList<String> allofmytasks){
-        this.alltasks = allofmytasks;
-    }
-
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
@@ -47,12 +70,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
 
     @Override
     public void onBindViewHolder(TaskViewHolder taskViewHolder , int position) {
-        taskViewHolder.task.setText(addNewTaskActivity.myAddedTasks.get(position));
+        taskViewHolder.task.setText(AddedTasks.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return addNewTaskActivity.myAddedTasks.size();
+        return AddedTasks.size();
     }
 }

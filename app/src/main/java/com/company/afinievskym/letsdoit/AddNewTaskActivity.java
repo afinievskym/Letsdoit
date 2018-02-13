@@ -45,18 +45,21 @@ public class AddNewTaskActivity extends Activity {
             public void onClick(View view) {
                 //Запись в БД
                 String task = newTask.getText().toString();
-
+                ContentValues contentValues = new ContentValues();
                 SQLiteDatabase database;
 
-                ContentValues contentValues = new ContentValues();
-                try {
-                    database = dbHelper.getWritableDatabase();
-                }
-                catch (SQLiteException ex){
-                    database = dbHelper.getReadableDatabase();
-                }
+                //ContentValues contentValues = new ContentValues();
+
                 switch (view.getId()) {
+
                     case R.id.AddMyTask:
+                        try {
+                            database = dbHelper.getWritableDatabase();
+                        } catch (SQLiteException ex) {
+                            database = dbHelper.getReadableDatabase();
+                        }
+
+                        
                         contentValues.put(DBHelper.TASKS, task);
 
                         database.insert(DBHelper.TABLE_NAME, null, contentValues);
@@ -83,7 +86,7 @@ public class AddNewTaskActivity extends Activity {
                         database.delete(DBHelper.TABLE_NAME, null, null);
                         break;*/
 
-                        myAddedTasks = new ArrayList<>();
+                        /*myAddedTasks = new ArrayList<>();
                         Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
 
                         if (cursor.moveToFirst()) {
@@ -92,13 +95,11 @@ public class AddNewTaskActivity extends Activity {
                             do {
                         /*Log.d("myLog", "ID = " + cursor.getInt(idIndex) +
                                 ", task = " + cursor.getString(taskIndex));*/
-                                myAddedTasks.add(cursor.getString(taskIndex));
+                                /*myAddedTasks.add(cursor.getString(taskIndex));
                                 Log.d("myLog", "Size =" + myAddedTasks.size());
                             } while (cursor.moveToNext());
                         } else
-                            //Log.d("myLog", "0 task");
-
-                            cursor.close();
+                            //Log.d("myLog", "0 task");*/
                         dbHelper.close();
                         Intent intentMain = new Intent(AddNewTaskActivity.this, MainDrawerAndTasks.class);
                         startActivity(intentMain);
