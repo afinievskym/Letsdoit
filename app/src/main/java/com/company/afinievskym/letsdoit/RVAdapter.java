@@ -34,7 +34,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
     public ArrayList<String> db(){
         //Всегда getApplicationcontext() для баз данных!
         dbHelper = new DBHelper(context);
-        ArrayList<String> dbHelpert = new ArrayList<String>();
+        ArrayList<String> dbHelperArray = new ArrayList<String>();
         database = dbHelper.getReadableDatabase();
         Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
 
@@ -44,11 +44,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
             do {
                         /*Log.d("myLog", "ID = " + cursor.getInt(idIndex) +
                                 ", task = " + cursor.getString(taskIndex));*/
-                dbHelpert.add(cursor.getString(taskIndex));
-                Log.d("myLog", "Size =" + dbHelpert.size());
+                dbHelperArray.add(cursor.getString(taskIndex));
+                Log.d("myLog", "Size =" + dbHelperArray.size());
             } while (cursor.moveToNext());
         }
-        return dbHelpert;
+        return dbHelperArray;
     }
     public class TaskViewHolder extends RecyclerView.ViewHolder{
         CardView cv;

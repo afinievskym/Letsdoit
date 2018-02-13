@@ -66,40 +66,10 @@ public class AddNewTaskActivity extends Activity {
 
 
                         //Комментирую ненужные кнопки
-                    /*case R.id.btnRead:
-                        Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
-
-                        if (cursor.moveToFirst()) {
-                            int idIndex = cursor.getColumnIndex(DBHelper.ID);
-                            int taskIndex = cursor.getColumnIndex(DBHelper.TASKS);
-                            do {
-                                Log.d("myLog", "ID = " + cursor.getInt(idIndex) +
-                                        ", task = " + cursor.getString(taskIndex));
-                            } while (cursor.moveToNext());
-                        } else
-                            Log.d("myLog", "0 task");
-
-                        cursor.close();
-                        break;
-
+                    /*
                     case R.id.btnClear:
                         database.delete(DBHelper.TABLE_NAME, null, null);
                         break;*/
-
-                        /*myAddedTasks = new ArrayList<>();
-                        Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
-
-                        if (cursor.moveToFirst()) {
-                            //int idIndex = cursor.getColumnIndex(DBHelper.ID);
-                            int taskIndex = cursor.getColumnIndex(DBHelper.TASKS);
-                            do {
-                        /*Log.d("myLog", "ID = " + cursor.getInt(idIndex) +
-                                ", task = " + cursor.getString(taskIndex));*/
-                                /*myAddedTasks.add(cursor.getString(taskIndex));
-                                Log.d("myLog", "Size =" + myAddedTasks.size());
-                            } while (cursor.moveToNext());
-                        } else
-                            //Log.d("myLog", "0 task");*/
                         dbHelper.close();
                         Intent intentMain = new Intent(AddNewTaskActivity.this, MainDrawerAndTasks.class);
                         startActivity(intentMain);
@@ -110,8 +80,7 @@ public class AddNewTaskActivity extends Activity {
         };
 
        addMyTask.setOnClickListener(onClickListener);
-       /*btnRead.setOnClickListener(onClickListener);
-       btnClear.setOnClickListener(onClickListener);*/
+       //btnClear.setOnClickListener(onClickListener);
     }
 
 }
