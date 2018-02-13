@@ -1,5 +1,6 @@
 package com.company.afinievskym.letsdoit;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -22,12 +23,17 @@ import java.util.ArrayList;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
     ArrayList<String> AddedTasks;
-    DBHelper dbHelper;
+    DBHelper dbHelper ;
     SQLiteDatabase database;
-    RVAdapter(){
+    Context context;
+
+    RVAdapter(Context context){
         this.AddedTasks = db();
+        this.context = context;
     }
     public ArrayList<String> db(){
+        //Всегда getApplicationcontext() для баз данных!
+        dbHelper = new DBHelper(context);
         ArrayList<String> dbHelpert = new ArrayList<String>();
         database = dbHelper.getReadableDatabase();
         Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
