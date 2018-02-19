@@ -1,20 +1,20 @@
-package com.company.afinievskym.letsdoit;
+package com.company.afinievskym.letsdoit.Classes_for_Task;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
+import com.company.afinievskym.letsdoit.DBHelper;
+import com.company.afinievskym.letsdoit.R;
+
 import java.util.ArrayList;
 
 /**
@@ -30,6 +30,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
     RVAdapter(Context context){
         this.context = context;
         this.AddedTasks = db();
+
     }
     public ArrayList<String> db(){
         //Всегда getApplicationcontext() для баз данных!
@@ -52,12 +53,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
     }
     public class TaskViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
-        TextView task;
+        TextView objektive;
+
 
         public TaskViewHolder(View itemView) {
             super(itemView);
-            cv = itemView.findViewById(R.id.cardview);
-            task = itemView.findViewById(R.id.tasktitle);
+            cv = itemView.findViewById(R.id.objektiveCardview);
+            objektive = itemView.findViewById(R.id.objectiveText);
         }
     }
     @Override
@@ -76,7 +78,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
 
     @Override
     public void onBindViewHolder(TaskViewHolder taskViewHolder , int position) {
-        taskViewHolder.task.setText(AddedTasks.get(position));
+        taskViewHolder.objektive.setText(AddedTasks.get(position));
 
     }
 
