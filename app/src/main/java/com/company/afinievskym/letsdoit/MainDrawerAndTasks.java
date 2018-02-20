@@ -20,7 +20,7 @@ import com.company.afinievskym.letsdoit.Classes_for_Task.RVAdapter;
 public class MainDrawerAndTasks extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //Подключаю классы
     AddNewTaskActivity addNewTaskActivity;
-    RVAdapter rvAdapter;
+    public RVAdapter rvAdapter;
 
     //Поля главного экрана
     FloatingActionButton AddTask;

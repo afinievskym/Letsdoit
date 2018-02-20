@@ -20,7 +20,7 @@ public class AddNewTaskActivity extends Activity {
     EditText newTask;
     Button addMyTask, btnRead, btnClear;
     DBHelper dbHelper;
-    ArrayList<String> myAddedTasks;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

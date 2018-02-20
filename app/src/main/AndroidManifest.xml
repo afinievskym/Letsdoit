@@ -25,7 +25,9 @@
         <activity
             android:name=".Classes_for_Task.ObjectiveActivity"
             android:label="@string/title_activity_objective"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Classes_for_Task.AddNewObjectiveActivity" />
+        <activity android:name=".Classes_for_Task.AddMainObjectiveActivity"></activity>
     </application>
 
 </manifest>

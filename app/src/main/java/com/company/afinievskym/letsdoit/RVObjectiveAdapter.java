@@ -24,7 +24,7 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
     DBHelper dbHelper ;
     SQLiteDatabase database;
     Context context;
-    RVObjectiveAdapter(Context context){
+    public RVObjectiveAdapter(Context context){
         this.context = context;
         this.AddedObjective = db();
     }
@@ -39,7 +39,7 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
         dbHelper = new DBHelper(context);
         ArrayList<String> dbHelperArray = new ArrayList<String>();
         database = dbHelper.getReadableDatabase();
-        Cursor cursor = database.query(DBHelper.TABLE_OBJECTIVE_NAME, null, null, null, null, null, null);
+        Cursor cursor = database.query(DBHelper.TABLE_OBJECTIVE_TITLE, null, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
             //int idIndex = cursor.getColumnIndex(DBHelper.ID);

@@ -25,9 +25,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
     ArrayList<String> AddedTasks;
     DBHelper dbHelper ;
     SQLiteDatabase database;
-    Context context;
+    public Context context;
 
-    RVAdapter(Context context){
+    public RVAdapter(Context context){
         this.context = context;
         this.AddedTasks = db();
 
