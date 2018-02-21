@@ -1,5 +1,6 @@
 package com.company.afinievskym.letsdoit.Classes_for_Task;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -35,7 +36,8 @@ public class ObjectiveActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intentMain = new Intent(ObjectiveActivity.this, AddMainObjectiveActivity.class);
+                startActivity(intentMain);
             }
         });
 

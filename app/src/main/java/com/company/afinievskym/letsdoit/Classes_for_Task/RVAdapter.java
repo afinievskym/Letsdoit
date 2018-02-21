@@ -49,6 +49,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
                 Log.d("myLog", "Size =" + dbHelperArray.size());
             } while (cursor.moveToNext());
         }
+        cursor.close();
         return dbHelperArray;
     }
     public class TaskViewHolder extends RecyclerView.ViewHolder{
