@@ -36,9 +36,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
         //Всегда getApplicationcontext() для баз данных!
         dbHelper = new DBHelper(context);
         ArrayList<String> dbHelperArray = new ArrayList<String>();
-        database = dbHelper.getReadableDatabase();
+        database = dbHelper.getWritableDatabase();
         Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
-
         if (cursor.moveToFirst()) {
             //int idIndex = cursor.getColumnIndex(DBHelper.ID);
             int taskIndex = cursor.getColumnIndex(DBHelper.TASKS);
@@ -54,13 +53,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
     }
     public class TaskViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
-        TextView objektive;
+        TextView task;
+
 
 
         public TaskViewHolder(View itemView) {
             super(itemView);
-            cv = itemView.findViewById(R.id.objektiveCardview);
-            objektive = itemView.findViewById(R.id.objectiveText);
+
+            cv = itemView.findViewById(R.id.cardview);
+            task = itemView.findViewById(R.id.tasktitle);
         }
     }
     @Override
@@ -79,7 +80,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
 
     @Override
     public void onBindViewHolder(TaskViewHolder taskViewHolder , int position) {
-        taskViewHolder.objektive.setText(AddedTasks.get(position));
+        taskViewHolder.task.setText(AddedTasks.get(position));
 
     }
 

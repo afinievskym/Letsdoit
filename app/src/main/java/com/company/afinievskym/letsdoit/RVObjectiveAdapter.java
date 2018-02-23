@@ -39,7 +39,7 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
         dbHelper = new DBHelper(context);
         ArrayList<String> dbHelperArray = new ArrayList<String>();
         database = dbHelper.getReadableDatabase();
-        Cursor cursor = database.query(DBHelper.TABLE_OBJECTIVE_TITLE, null, null, null, null, null, null);
+        Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
             //int idIndex = cursor.getColumnIndex(DBHelper.ID);
@@ -55,12 +55,12 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
     }
     public class TaskViewHolder extends RecyclerView.ViewHolder{
         CardView cv;
-        TextView task;
+        TextView objektive;
 
         public TaskViewHolder(View itemView) {
             super(itemView);
-            cv = itemView.findViewById(R.id.cardview);
-            task = itemView.findViewById(R.id.tasktitle);
+            cv = itemView.findViewById(R.id.objektiveCardview);
+            objektive = itemView.findViewById(R.id.objectiveText);
         }
     }
     @Override
@@ -72,7 +72,7 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
 
     @Override
     public void onBindViewHolder(RVObjectiveAdapter.TaskViewHolder holder, int position) {
-        holder.task.setText(AddedObjective.get(position));
+        holder.objektive.setText(AddedObjective.get(position));
     }
 
     @Override

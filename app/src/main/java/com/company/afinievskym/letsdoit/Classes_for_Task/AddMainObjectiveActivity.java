@@ -43,7 +43,7 @@ public class AddMainObjectiveActivity extends AppCompatActivity {
                         }
 
 
-                        contentValues.put(DBHelper.OBJEKTIVE_TASKS, task);
+                        contentValues.put(DBHelper.TABLE_NAME, task);
 
                         database.insert(DBHelper.TABLE_ADD_OBJECTIVE_TASK, null, contentValues);
                         dbHelper.close();

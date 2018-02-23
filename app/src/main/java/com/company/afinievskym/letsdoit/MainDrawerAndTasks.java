@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.company.afinievskym.letsdoit.Classes_for_Task.AddMainObjectiveActivity;
+import com.company.afinievskym.letsdoit.Classes_for_Task.ObjectiveActivity;
 import com.company.afinievskym.letsdoit.Classes_for_Task.RVAdapter;
 
 public class MainDrawerAndTasks extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -109,7 +110,7 @@ public class MainDrawerAndTasks extends AppCompatActivity implements NavigationV
         } else if (id == R.id.calendarMenuItem) {
 
         } else if (id == R.id.myTargetsMenuItem) {
-            Intent myobjectivesintent = new Intent(MainDrawerAndTasks.this, AddMainObjectiveActivity.class);
+            Intent myobjectivesintent = new Intent(MainDrawerAndTasks.this, ObjectiveActivity.class);
             startActivity(myobjectivesintent);
 
         } else if (id == R.id.achivmentsMenuItem) {

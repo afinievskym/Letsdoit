@@ -19,11 +19,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ID = "_id";
     public static final String OBJEKTIVES = "MyAddedObjectives";
     public static final String OBJECTIVE_ID = "_id";
+
     //Objective BD
     public static final String TABLE_ADD_OBJECTIVE_TASK = "MyOTask";
     public static final String OBJEKTIVE_TASKS = "MyAdeedObjektivesTasks";
     public static final String OBJEKTIVE_TASKS_ID = "_id";
+    public static final String TASKS_SQL = "create table " + TABLE_NAME + "(" + ID + " integer primary key," /*+ TITLE*/ + " text," + TASKS + " text" + ")";
+    public static final String OBJECTIVE_SQL = "create table " + TABLE_OBJECTIVE_TITLE + "(" + ID + " integer primary key," /*+ TITLE*/ + " text," + OBJEKTIVES + " text" + ")";
     //public static final String TITLE = "Title";
+
     //Номера столбцов
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -31,12 +35,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table " + TABLE_NAME + TABLE_OBJECTIVE_TITLE + TABLE_ADD_OBJECTIVE_TASK + "(" + ID + OBJECTIVE_ID +OBJEKTIVE_TASKS_ID + " integer primary key," /*+ TITLE*/ + " text," + TASKS + OBJEKTIVES + OBJEKTIVE_TASKS +" text" + ")");
-
+        sqLiteDatabase.execSQL(TASKS_SQL + OBJECTIVE_SQL);
+        //+ TABLE_OBJECTIVE_TITLE + TABLE_ADD_OBJECTIVE_TASK
+        //OBJECTIVE_ID +OBJEKTIVE_TASKS_ID +
+        //OBJEKTIVES + OBJEKTIVE_TASKS +
     }
 
+
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("drop table if exists " + TABLE_NAME);
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("drop table if exists " + TABLE_NAME );
+
     }
 }
