@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
     //Данные базы данных и таблиц
     public static final String DATABASE_NAME = "Task";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String TABLE_NAME = "MyTasks";
     public static final String TABLE_OBJECTIVE_TITLE = "MyObjective";
     //Столбцы

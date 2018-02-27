@@ -24,9 +24,12 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
     DBHelper dbHelper ;
     SQLiteDatabase database;
     Context context;
-    public RVObjectiveAdapter(Context context){
+    public RVObjectiveAdapter(Context context) {
         this.context = context;
         this.AddedObjective = db();
+        for (int i = 0; i < AddedObjective.size(); i++) {
+            Log.d("myLog", "ObjectivemainArray = " + AddedObjective.get(i));
+        }
     }
 
     @Override
@@ -45,12 +48,16 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
             //int idIndex = cursor.getColumnIndex(DBHelper.ID);
             int taskIndex = cursor.getColumnIndex(DBHelper.OBJEKTIVES);
             do {
-                        /*Log.d("myLog", "ID = " + cursor.getInt(idIndex) +
-                                ", task = " + cursor.getString(taskIndex));*/
+                        Log.d("myLog", " objektives = " + cursor.getString(taskIndex));
                 dbHelperArray.add(cursor.getString(taskIndex));
                 Log.d("myLog", "Size =" + dbHelperArray.size());
+                for (int i = 0; i < dbHelperArray.size(); i++) {
+                    Log.d("myLog", "Elements = " + dbHelperArray.get(i));
+                }
             } while (cursor.moveToNext());
         }
+        cursor.close();
+
         return dbHelperArray;
     }
     public class TaskViewHolder extends RecyclerView.ViewHolder{
@@ -65,7 +72,7 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
     }
     @Override
     public RVObjectiveAdapter.TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.objectivecard, parent, false);
         RVObjectiveAdapter.TaskViewHolder taskViewHolder = new RVObjectiveAdapter.TaskViewHolder(v);
         return taskViewHolder;
     }
