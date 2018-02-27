@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,15 +30,12 @@ public class AddMainObjectiveActivity extends AppCompatActivity {
         newObjective = findViewById(R.id.neweditMainObjective);
         addMyObjective = findViewById(R.id.addMyMainObjectiveBut);
         dbHelper = new DBHelper(this);
-        // Работа с БД
-        View.OnClickListener onClickListener = new View.OnClickListener() {
+        addMyObjective.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String task = newObjective.getText().toString();
                 ContentValues contentValues = new ContentValues();
                 SQLiteDatabase database;
-                switch (view.getId()){
-                    case R.id.addMyObjectiveBut:
                         try {
                             database = dbHelper.getWritableDatabase();
                         } catch (SQLiteException ex) {
@@ -45,16 +43,15 @@ public class AddMainObjectiveActivity extends AppCompatActivity {
                         }
 
 
-                        contentValues.put(DBHelper.TABLE_NAME, task);
-
+                        contentValues.put(DBHelper.TABLE_OBJECTIVE_TITLE, task);
                         database.insert(DBHelper.TABLE_ADD_OBJECTIVE_TASK, null, contentValues);
+                //Log.d("sqlite", );
                         dbHelper.close();
-                        Intent intentMain = new Intent(AddMainObjectiveActivity.this, MainDrawerAndTasks.class);
+                        Intent intentMain = new Intent(AddMainObjectiveActivity.this, ObjectiveActivity.class);
                         startActivity(intentMain);
-
-                }
             }
-        };
-        addMyObjective.setOnClickListener(onClickListener);
+        });
+
+
     }
 }

@@ -20,6 +20,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="56dp"
-        android:text="Button" />
+        android:text="Добавить цель" />
 
 </RelativeLayout>
