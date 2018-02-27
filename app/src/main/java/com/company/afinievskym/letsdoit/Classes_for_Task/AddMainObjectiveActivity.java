@@ -43,9 +43,9 @@ public class AddMainObjectiveActivity extends AppCompatActivity {
                         }
 
 
-                        contentValues.put(DBHelper.TABLE_OBJECTIVE_TITLE, task);
-                        database.insert(DBHelper.TABLE_ADD_OBJECTIVE_TASK, null, contentValues);
-                //Log.d("sqlite", );
+                        contentValues.put(DBHelper.OBJEKTIVES, task);
+                        database.insert(DBHelper.TABLE_OBJECTIVE_TITLE, null, contentValues);
+
                         dbHelper.close();
                         Intent intentMain = new Intent(AddMainObjectiveActivity.this, ObjectiveActivity.class);
                         startActivity(intentMain);

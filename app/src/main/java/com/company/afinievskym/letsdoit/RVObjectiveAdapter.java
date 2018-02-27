@@ -39,7 +39,7 @@ public class RVObjectiveAdapter extends RecyclerView.Adapter<RVObjectiveAdapter.
         dbHelper = new DBHelper(context);
         ArrayList<String> dbHelperArray = new ArrayList<String>();
         database = dbHelper.getReadableDatabase();
-        Cursor cursor = database.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
+        Cursor cursor = database.query(DBHelper.TABLE_OBJECTIVE_TITLE, null, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
             //int idIndex = cursor.getColumnIndex(DBHelper.ID);
