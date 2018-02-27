@@ -21,7 +21,8 @@ import java.util.ArrayList;
  * Created by Programmer on 11.02.2018.
  */
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder> {
+public class RVAdapter extends RecyclerView.Adapter<RVAdapter.TaskViewHolder>  {
+
     ArrayList<String> AddedTasks;
     DBHelper dbHelper ;
     SQLiteDatabase database;

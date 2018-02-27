@@ -1,6 +1,7 @@
 package com.company.afinievskym.letsdoit.Classes_for_Task;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.company.afinievskym.letsdoit.DBHelper;
+import com.company.afinievskym.letsdoit.MainDrawerAndTasks;
 import com.company.afinievskym.letsdoit.R;
 
 public class AddMainObjectiveActivity extends AppCompatActivity {
@@ -47,8 +49,8 @@ public class AddMainObjectiveActivity extends AppCompatActivity {
 
                         database.insert(DBHelper.TABLE_ADD_OBJECTIVE_TASK, null, contentValues);
                         dbHelper.close();
-                        //Intent intentMain = new Intent(AddNewObjectiveActivity.this, MainDrawerAndTasks.class);
-                        //startActivity(intentMain);
+                        Intent intentMain = new Intent(AddMainObjectiveActivity.this, MainDrawerAndTasks.class);
+                        startActivity(intentMain);
 
                 }
             }

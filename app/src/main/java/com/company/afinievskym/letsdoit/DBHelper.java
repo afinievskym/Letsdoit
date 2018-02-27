@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
     //Данные базы данных и таблиц
     public static final String DATABASE_NAME = "Task";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String TABLE_NAME = "MyTasks";
     public static final String TABLE_OBJECTIVE_TITLE = "MyObjective";
     //Столбцы
@@ -35,7 +35,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(TASKS_SQL + OBJECTIVE_SQL);
+        sqLiteDatabase.execSQL(OBJECTIVE_SQL);
+        sqLiteDatabase.execSQL(TASKS_SQL);
         //+ TABLE_OBJECTIVE_TITLE + TABLE_ADD_OBJECTIVE_TASK
         //OBJECTIVE_ID +OBJEKTIVE_TASKS_ID +
         //OBJEKTIVES + OBJEKTIVE_TASKS +
@@ -45,6 +46,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists " + TABLE_NAME );
+        db.execSQL("drop table if exists " + TABLE_OBJECTIVE_TITLE);
+        onCreate(db);
 
     }
 }

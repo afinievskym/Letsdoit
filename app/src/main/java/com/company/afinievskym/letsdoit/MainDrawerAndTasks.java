@@ -1,5 +1,7 @@
 package com.company.afinievskym.letsdoit;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -112,8 +114,12 @@ public class MainDrawerAndTasks extends AppCompatActivity implements NavigationV
         } else if (id == R.id.myTargetsMenuItem) {
             Intent myobjectivesintent = new Intent(MainDrawerAndTasks.this, ObjectiveActivity.class);
             startActivity(myobjectivesintent);
+            /*android.support.v4.app.FragmentTransaction myobjectives = getSupportFragmentManager().beginTransaction();
+            myobjectives.replace(R.id.container, new MyTargetsFragment());
+            myobjectives.commit();*/
 
         } else if (id == R.id.achivmentsMenuItem) {
+
 
         } else if (id == R.id.notesMenuItem) {
 
