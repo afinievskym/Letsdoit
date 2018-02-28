@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.company.afinievskym.letsdoit.Classes_for_Task.AddMainObjectiveActivity">
+    tools:context="com.company.afinievskym.letsdoit.Objectives.AddMainObjectiveActivity">
 
     <EditText
         android:id="@+id/neweditMainObjective"

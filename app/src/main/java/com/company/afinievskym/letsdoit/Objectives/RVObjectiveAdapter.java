@@ -1,4 +1,4 @@
-package com.company.afinievskym.letsdoit;
+package com.company.afinievskym.letsdoit.Objectives;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import com.company.afinievskym.letsdoit.DBHelper;
+import com.company.afinievskym.letsdoit.R;
 
 import java.util.ArrayList;
 

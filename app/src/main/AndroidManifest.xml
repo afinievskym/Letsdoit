@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/title"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddNewTaskActivity" />
+        <activity android:name=".Tasks.AddNewTaskActivity" />
         <activity
             android:name=".MainDrawerAndTasks"
             android:label="@string/app_name"
@@ -23,11 +23,11 @@
         <activity android:name=".ListsTask" />
         <activity android:name=".Calendar" />
         <activity
-            android:name=".Classes_for_Task.ObjectiveActivity"
+            android:name=".Objectives.ObjectiveActivity"
             android:label="@string/title_activity_objective"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Classes_for_Task.AddNewObjectiveActivity" />
-        <activity android:name=".Classes_for_Task.AddMainObjectiveActivity"></activity>
+        <activity android:name=".Objectives.AddNewObjectiveActivity" />
+        <activity android:name=".Objectives.AddMainObjectiveActivity"></activity>
     </application>
 
 </manifest>

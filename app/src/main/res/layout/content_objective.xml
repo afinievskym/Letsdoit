@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.company.afinievskym.letsdoit.Classes_for_Task.ObjectiveActivity"
+    tools:context="com.company.afinievskym.letsdoit.Objectives.ObjectiveActivity"
     tools:showIn="@layout/app_bar_objective">
 
 </android.support.v7.widget.RecyclerView>

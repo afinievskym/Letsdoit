@@ -1,9 +1,8 @@
-package com.company.afinievskym.letsdoit.Classes_for_Task;
+package com.company.afinievskym.letsdoit.Objectives;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,12 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 
-import com.company.afinievskym.letsdoit.DBHelper;
 import com.company.afinievskym.letsdoit.R;
-import com.company.afinievskym.letsdoit.RVObjectiveAdapter;
 
 public class ObjectiveActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
