@@ -54,15 +54,16 @@ public class MainDrawerAndTasks extends AppCompatActivity implements NavigationV
                 startActivity(task);
             }
         });
+
+
         OnCreateAdapters();
     }
     public void OnCreateAdapters(){
         RecyclerView rv = (RecyclerView)findViewById(R.id.my_recycler_view);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        //Error NullPointer execption
         RVAdapter adapter = new RVAdapter(getApplicationContext());
-        //end error
+
         rv.setAdapter(adapter);
     }
     @SuppressWarnings("StatementWithEmptyBody")
