@@ -8,25 +8,26 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/title"
         android:supportsRtl="true"
-        android:theme="@style/Letsdoit">
-        <activity android:name=".Tasks.AddNewTaskActivity" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".AddNewTaskActivity" />
         <activity
             android:name=".MainDrawerAndTasks"
             android:label="@string/app_name"
-            android:theme="@style/Letsdoit">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".ListsTask" />
+        <activity android:name=".Calendar" />
         <activity
-            android:name=".Objectives.ObjectiveActivity"
+            android:name=".Classes_for_Task.ObjectiveActivity"
             android:label="@string/title_activity_objective"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Objectives.AddNewObjectiveActivity" />
-        <activity android:name=".Objectives.AddMainObjectiveActivity"></activity>
+        <activity android:name=".Classes_for_Task.AddNewObjectiveActivity" />
+        <activity android:name=".Classes_for_Task.AddMainObjectiveActivity"></activity>
     </application>
 
 </manifest>

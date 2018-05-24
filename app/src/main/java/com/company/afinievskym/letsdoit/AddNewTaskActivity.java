@@ -1,4 +1,4 @@
-package com.company.afinievskym.letsdoit.Tasks;
+package com.company.afinievskym.letsdoit;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -10,9 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.company.afinievskym.letsdoit.DBHelper;
-import com.company.afinievskym.letsdoit.MainDrawerAndTasks;
-import com.company.afinievskym.letsdoit.R;
+import java.util.ArrayList;
 
 /**
  * Created by afini on 02.02.2018.

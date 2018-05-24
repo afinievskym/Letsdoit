@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.company.afinievskym.letsdoit.Tasks.AddNewTaskActivity">
+    tools:context="com.company.afinievskym.letsdoit.AddNewTaskActivity">
 
     <EditText
         android:id="@+id/newTask"
